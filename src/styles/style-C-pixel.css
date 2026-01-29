@@ -1,0 +1,452 @@
+/* ========================================
+   BẢN C: RETRO GAME / PIXEL ART STYLE
+   8-bit, nostalgic, game arcade
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+:root {
+    /* PIXEL ART PALETTE - Tết Game */
+    --pixel-red: #E53935;
+    --pixel-gold: #FFD54F;
+    --pixel-orange: #FF9800;
+    --pixel-brown: #5D4037;
+    --pixel-cream: #FFF8E1;
+    --pixel-dark: #1A1A2E;
+    --pixel-white: #FFFFFF;
+
+    /* Pixel specific */
+    --pixel-border: 4px;
+    --pixel-shadow: 6px 6px 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Pixelated rendering */
+body {
+    font-family: 'VT323', monospace;
+    min-height: 100vh;
+    background: var(--pixel-dark);
+    overflow-x: hidden;
+    image-rendering: pixelated;
+    /* Scanlines effect */
+    background-image:
+        repeating-linear-gradient(0deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 0, 0, 0.15) 2px,
+            rgba(0, 0, 0, 0.15) 4px),
+        linear-gradient(180deg, #2D1810 0%, #1A1A2E 50%, #0D0D1A 100%);
+}
+
+/* Pixel grid pattern */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        linear-gradient(rgba(255, 213, 79, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 213, 79, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.app {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    padding-bottom: 60px;
+}
+
+/* Pixel petals */
+.petal {
+    position: fixed;
+    top: -30px;
+    z-index: 100;
+    pointer-events: none;
+    animation: pixelFall linear infinite;
+    image-rendering: pixelated;
+}
+
+.petal::before {
+    content: '❀';
+    font-size: inherit;
+    color: #FFB6C1;
+    text-shadow: 2px 2px 0 var(--pixel-red);
+}
+
+@keyframes pixelFall {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    25% {
+        transform: translateY(25vh) translateX(10px);
+    }
+
+    50% {
+        transform: translateY(50vh) translateX(-10px);
+    }
+
+    75% {
+        transform: translateY(75vh) translateX(10px);
+    }
+
+    100% {
+        transform: translateY(105vh);
+        opacity: 0.5;
+    }
+}
+
+/* Pixel lanterns */
+.decoration {
+    position: fixed;
+    z-index: 50;
+    text-shadow: 3px 3px 0 var(--pixel-brown);
+    image-rendering: pixelated;
+}
+
+.decoration--lantern-left {
+    top: 15px;
+    left: 20px;
+    font-size: 3rem;
+    animation: pixelSwing 1s steps(4) infinite;
+}
+
+.decoration--lantern-right {
+    top: 15px;
+    right: 20px;
+    font-size: 3rem;
+    animation: pixelSwing 1s steps(4) infinite reverse;
+}
+
+@keyframes pixelSwing {
+
+    0%,
+    100% {
+        transform: rotate(-8deg);
+    }
+
+    50% {
+        transform: rotate(8deg);
+    }
+}
+
+/* Header - Arcade style */
+.header {
+    text-align: center;
+    padding: 50px 20px 30px;
+}
+
+.header__title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: clamp(1.2rem, 5vw, 2.5rem);
+    color: var(--pixel-gold);
+    text-shadow:
+        4px 4px 0 var(--pixel-red),
+        8px 8px 0 var(--pixel-brown);
+    letter-spacing: 4px;
+    line-height: 1.8;
+    animation: textBlink 0.5s steps(2) infinite;
+}
+
+@keyframes textBlink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.9;
+    }
+}
+
+.header__subtitle {
+    font-family: 'VT323', monospace;
+    font-size: clamp(1.2rem, 4vw, 2rem);
+    color: var(--pixel-cream);
+    margin-top: 20px;
+    padding: 12px 30px;
+    background: var(--pixel-red);
+    border: var(--pixel-border) solid var(--pixel-gold);
+    box-shadow: var(--pixel-shadow) var(--pixel-brown);
+    display: inline-block;
+}
+
+/* HIGH SCORE banner */
+.header::after {
+    content: '★ HIGH SCORE ★';
+    display: block;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    color: var(--pixel-gold);
+    margin-top: 25px;
+    animation: blink 1s steps(2) infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Leaderboard */
+.leaderboard {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Pixel Podium */
+.podium {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 20px;
+    padding: 40px 15px;
+}
+
+.podium__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.1s steps(3);
+}
+
+.podium__item:hover {
+    transform: translateY(-8px);
+}
+
+/* Pixel Avatar */
+.podium__avatar {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    background: var(--pixel-cream);
+    border: var(--pixel-border) solid var(--pixel-brown);
+    box-shadow: var(--pixel-shadow) var(--pixel-dark);
+    margin-bottom: 12px;
+    position: relative;
+    /* Pixelated border effect */
+    clip-path: polygon(0 10%, 10% 0, 90% 0, 100% 10%,
+            100% 90%, 90% 100%, 10% 100%, 0 90%);
+}
+
+.podium__item--first .podium__avatar {
+    width: 100px;
+    height: 100px;
+    font-size: 3.2rem;
+    border-color: var(--pixel-gold);
+    background: var(--pixel-gold);
+}
+
+.podium__item--first .podium__avatar::before {
+    content: '♔';
+    position: absolute;
+    top: -35px;
+    font-size: 2rem;
+    color: var(--pixel-gold);
+    text-shadow: 2px 2px 0 var(--pixel-brown);
+    animation: crownBounce 0.5s steps(4) infinite;
+}
+
+@keyframes crownBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+/* Name - Pixel font */
+.podium__name {
+    font-family: 'VT323', monospace;
+    font-size: 1.4rem;
+    color: var(--pixel-cream);
+    text-shadow: 2px 2px 0 var(--pixel-brown);
+    margin-bottom: 8px;
+}
+
+.podium__item--first .podium__name {
+    font-size: 1.7rem;
+    color: var(--pixel-gold);
+}
+
+/* Score - Arcade counter style */
+.podium__score {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+    color: var(--pixel-dark);
+    background: var(--pixel-gold);
+    padding: 10px 16px;
+    border: 3px solid var(--pixel-brown);
+    box-shadow: 4px 4px 0 var(--pixel-dark);
+    margin-bottom: 12px;
+}
+
+.podium__item--first .podium__score {
+    font-size: 0.85rem;
+    background: var(--pixel-cream);
+    animation: scoreFlash 0.8s steps(2) infinite;
+}
+
+@keyframes scoreFlash {
+
+    0%,
+    100% {
+        background: var(--pixel-gold);
+    }
+
+    50% {
+        background: var(--pixel-cream);
+    }
+}
+
+/* Title - Game badge */
+.podium__title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.5rem;
+    padding: 10px 14px;
+    border: 3px solid var(--pixel-brown);
+    box-shadow: 4px 4px 0 var(--pixel-dark);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.podium__item--first .podium__title {
+    background: var(--pixel-gold);
+    color: var(--pixel-brown);
+    font-size: 0.6rem;
+}
+
+.podium__item--second .podium__title {
+    background: #C0C0C0;
+    color: var(--pixel-brown);
+}
+
+.podium__item--third .podium__title {
+    background: #CD7F32;
+    color: var(--pixel-cream);
+}
+
+/* Pixel Stand - Block style */
+.podium__stand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: var(--pixel-border) solid var(--pixel-brown);
+    box-shadow: var(--pixel-shadow) var(--pixel-dark);
+    /* Pixel corner cut */
+    clip-path: polygon(0 8%, 8% 0, 92% 0, 100% 8%,
+            100% 100%, 0 100%);
+}
+
+.podium__item--first .podium__stand {
+    width: 120px;
+    height: 150px;
+    background: linear-gradient(180deg, var(--pixel-gold) 0%, #FFA000 100%);
+}
+
+.podium__item--second .podium__stand {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(180deg, #E0E0E0 0%, #9E9E9E 100%);
+}
+
+.podium__item--third .podium__stand {
+    width: 100px;
+    height: 70px;
+    background: linear-gradient(180deg, #CD7F32 0%, #8B4513 100%);
+}
+
+.podium__rank {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2rem;
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.podium__item--first .podium__rank {
+    font-size: 2.5rem;
+}
+
+/* INSERT COIN prompt */
+.leaderboard::after {
+    content: '[ PRESS START ]';
+    display: block;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    color: var(--pixel-gold);
+    margin-top: 40px;
+    animation: blink 1s steps(2) infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header__title {
+        font-size: clamp(0.8rem, 4vw, 1.5rem);
+    }
+
+    .podium {
+        gap: 10px;
+    }
+
+    .podium__avatar {
+        width: 60px;
+        height: 60px;
+        font-size: 1.8rem;
+    }
+
+    .podium__item--first .podium__avatar {
+        width: 80px;
+        height: 80px;
+        font-size: 2.5rem;
+    }
+
+    .podium__stand {
+        width: 75px !important;
+    }
+
+    .podium__item--first .podium__stand {
+        width: 95px !important;
+        height: 120px;
+    }
+
+    .podium__name {
+        font-size: 1rem;
+    }
+
+    .podium__title {
+        font-size: 0.4rem;
+        padding: 6px 10px;
+    }
+
+    .podium__score {
+        font-size: 0.5rem;
+    }
+}

@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "trangnguyenclevai26-76c02"
+  },
+  "targets": {
+    "trangnguyen26e": {
+      "hosting": {
+        "trangnguyen26e": [
+          "trangnguyen26e-66968"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

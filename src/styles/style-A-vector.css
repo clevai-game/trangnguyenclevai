@@ -1,0 +1,365 @@
+/* ========================================
+   BẢN A: 2D VECTOR / ILLUSTRATOR STYLE
+   Flat design, đường nét sắc sảo, màu block
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Quicksand:wght@500;600;700&display=swap');
+
+:root {
+    /* 2D VECTOR PALETTE - Tết Edition */
+    --red-primary: #E63946;
+    --red-dark: #C1121F;
+    --yellow-gold: #FFB703;
+    --yellow-light: #FFF3CD;
+    --orange: #FB8500;
+    --cream: #FFF8E7;
+    --brown: #5C4033;
+    --white: #FFFFFF;
+
+    /* Typography */
+    --font-display: 'Baloo 2', cursive;
+    --font-body: 'Quicksand', sans-serif;
+
+    /* 2D Vector specific */
+    --border-thick: 4px;
+    --border-color: #2D1810;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    min-height: 100vh;
+    /* Flat color blocks background */
+    background: var(--cream);
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Decorative shapes - 2D Vector style */
+body::before {
+    content: '';
+    position: fixed;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: var(--yellow-gold);
+    border-radius: 50%;
+    border: var(--border-thick) solid var(--border-color);
+    z-index: 0;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    bottom: -150px;
+    left: -150px;
+    width: 500px;
+    height: 500px;
+    background: var(--red-primary);
+    border-radius: 50%;
+    border: var(--border-thick) solid var(--border-color);
+    z-index: 0;
+}
+
+.app {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+}
+
+/* Falling Petals - Simple flat style */
+.petal {
+    position: fixed;
+    top: -30px;
+    z-index: 100;
+    pointer-events: none;
+    animation: fall linear infinite;
+}
+
+.petal::before {
+    content: '🌸';
+    font-size: inherit;
+    filter: drop-shadow(2px 2px 0 var(--border-color));
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0.5;
+    }
+}
+
+/* Decorations - Flat illustrator lanterns */
+.decoration {
+    position: fixed;
+    z-index: 50;
+    filter: drop-shadow(3px 3px 0 var(--border-color));
+}
+
+.decoration--lantern-left {
+    top: 15px;
+    left: 20px;
+    font-size: 3.5rem;
+    animation: swing 2.5s ease-in-out infinite;
+}
+
+.decoration--lantern-right {
+    top: 15px;
+    right: 20px;
+    font-size: 3.5rem;
+    animation: swing 2.5s ease-in-out infinite reverse;
+}
+
+@keyframes swing {
+
+    0%,
+    100% {
+        transform: rotate(-12deg);
+    }
+
+    50% {
+        transform: rotate(12deg);
+    }
+}
+
+/* Header - Bold flat typography */
+.header {
+    text-align: center;
+    padding: 50px 20px 30px;
+}
+
+.header__title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 9vw, 5rem);
+    color: var(--red-primary);
+    text-shadow:
+        4px 4px 0 var(--yellow-gold),
+        8px 8px 0 var(--border-color);
+    letter-spacing: 2px;
+    -webkit-text-stroke: 2px var(--border-color);
+}
+
+.header__subtitle {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 3vw, 1.6rem);
+    color: var(--brown);
+    font-weight: 700;
+    margin-top: 15px;
+    background: var(--yellow-gold);
+    display: inline-block;
+    padding: 10px 30px;
+    border: var(--border-thick) solid var(--border-color);
+    border-radius: 50px;
+    box-shadow: 4px 4px 0 var(--border-color);
+}
+
+/* Leaderboard */
+.leaderboard {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+/* Podium - Flat 2D blocks */
+.podium {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 20px;
+    padding: 40px 15px;
+}
+
+.podium__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.podium__item:hover {
+    transform: translateY(-10px);
+}
+
+/* Avatar - Flat circle with thick border */
+.podium__avatar {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.8rem;
+    background: var(--white);
+    border: var(--border-thick) solid var(--border-color);
+    box-shadow: 5px 5px 0 var(--border-color);
+    margin-bottom: 12px;
+    position: relative;
+}
+
+.podium__item--first .podium__avatar {
+    width: 110px;
+    height: 110px;
+    font-size: 3.5rem;
+    border-color: var(--yellow-gold);
+    box-shadow: 6px 6px 0 var(--border-color);
+}
+
+.podium__item--first .podium__avatar::before {
+    content: '👑';
+    position: absolute;
+    top: -40px;
+    font-size: 2.2rem;
+    filter: drop-shadow(2px 2px 0 var(--border-color));
+}
+
+/* Name */
+.podium__name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--brown);
+    margin-bottom: 8px;
+}
+
+.podium__item--first .podium__name {
+    font-size: 1.4rem;
+    color: var(--red-dark);
+}
+
+/* Score - Flat badge */
+.podium__score {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--brown);
+    background: var(--yellow-light);
+    padding: 8px 18px;
+    border: 3px solid var(--border-color);
+    border-radius: 25px;
+    box-shadow: 3px 3px 0 var(--border-color);
+    margin-bottom: 12px;
+}
+
+.podium__item--first .podium__score {
+    font-size: 1.2rem;
+    background: var(--yellow-gold);
+}
+
+/* Title Badge - Flat ribbon style */
+.podium__title {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    padding: 10px 22px;
+    border: 3px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 4px 4px 0 var(--border-color);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.podium__item--first .podium__title {
+    background: var(--yellow-gold);
+    color: var(--brown);
+    font-size: 1.1rem;
+}
+
+.podium__item--second .podium__title {
+    background: #E8E8E8;
+    color: var(--brown);
+}
+
+.podium__item--third .podium__title {
+    background: #DEB887;
+    color: var(--brown);
+}
+
+/* Stand - Flat 2D blocks */
+.podium__stand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: var(--border-thick) solid var(--border-color);
+    border-radius: 15px 15px 0 0;
+    box-shadow: 5px 5px 0 var(--border-color);
+}
+
+.podium__item--first .podium__stand {
+    width: 130px;
+    height: 160px;
+    background: var(--yellow-gold);
+}
+
+.podium__item--second .podium__stand {
+    width: 105px;
+    height: 110px;
+    background: #C0C0C0;
+}
+
+.podium__item--third .podium__stand {
+    width: 105px;
+    height: 75px;
+    background: #CD7F32;
+}
+
+.podium__rank {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    color: var(--white);
+    -webkit-text-stroke: 2px var(--border-color);
+}
+
+.podium__item--first .podium__rank {
+    font-size: 4.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .podium {
+        gap: 12px;
+    }
+
+    .podium__avatar {
+        width: 65px;
+        height: 65px;
+        font-size: 2rem;
+    }
+
+    .podium__item--first .podium__avatar {
+        width: 85px;
+        height: 85px;
+        font-size: 2.5rem;
+    }
+
+    .podium__stand {
+        width: 80px !important;
+    }
+
+    .podium__item--first .podium__stand {
+        width: 100px !important;
+        height: 130px;
+    }
+
+    .podium__name {
+        font-size: 0.9rem;
+    }
+
+    .podium__title {
+        font-size: 0.7rem;
+        padding: 6px 12px;
+    }
+}
