@@ -251,7 +251,7 @@ body {
     display: block;
     font-family: var(--font-heading);
     color: var(--tn-red);
-    text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
 }
 
 .hero__subtitle {
@@ -385,6 +385,47 @@ body {
 .hero__scroll {
     display: none;
     /* Clean look, remove scroll indicator usually */
+}
+
+/* Responsive Hero */
+@media (max-width: 900px) {
+    .hero__content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero__visual {
+        order: -1;
+        /* Show image first on mobile */
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .hero__text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero__title {
+        font-size: 2.8rem;
+    }
+
+    .hero__description {
+        margin: 0 auto 30px;
+    }
+
+    .hero__buttons {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .hero__btn {
+        width: 100%;
+        max-width: 250px;
+        justify-content: center;
+    }
 }
 
 /* ===== STATISTICS ===== */
@@ -1429,7 +1470,7 @@ body {
     font-style: italic;
 }
 
-/* Responsive for Top 20 */
+/* Responsive for Top 20 (Tablet) */
 @media (max-width: 900px) {
 
     .top20__th,
@@ -1441,52 +1482,150 @@ body {
     .top20__th--school,
     .top20__td--school {
         display: none;
-    }
-
-    .top20__avatar {
-        width: 36px;
-        height: 36px;
-        font-size: 1.5rem;
+        /* Hide school on tablet */
     }
 }
 
-@media (max-width: 600px) {
-    .top20 {
-        padding: 60px 15px;
-    }
+/* Responsive for Top 20 & Podium (Mobile) */
+@media (max-width: 768px) {
 
-    .top20__th--grade,
-    .top20__td--grade {
+    /* ----- TOP 20 LIST VIEW ----- */
+    .top20__table thead {
         display: none;
     }
 
-    .top20__th,
+    .top20__table,
+    .top20__table tbody,
+    .top20__table tr,
+    .top20__table td {
+        display: block;
+        width: 100%;
+    }
+
+    .top20__row {
+        margin-bottom: 15px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        padding: 15px;
+        padding-top: 45px;
+        position: relative;
+        border: 1px solid #E0E0E0;
+    }
+
     .top20__td {
-        padding: 10px 8px;
-        font-size: 0.8rem;
+        padding: 2px 0;
+        text-align: left;
+        border: none;
+    }
+
+    .top20__td--rank {
+        position: absolute;
+        top: 10px;
+        left: 15px;
+        padding: 0;
+        width: auto;
+        border: none;
     }
 
     .top20__rank-number {
-        font-size: 1rem;
+        font-size: 1.2rem;
+        color: var(--tn-text-main);
     }
 
-    .top20__medal {
-        font-size: 1.1rem;
+    .top20__td--name {
+        width: 100%;
     }
 
     .top20__student-name {
-        font-size: 0.9rem;
+        font-size: 1.1rem;
+        display: block;
+    }
+
+    .top20__td--grade,
+    .top20__td--school {
+        display: none;
+    }
+
+    .top20__td--score {
+        margin-top: 5px;
+        width: 100%;
+        text-align: left;
     }
 
     .top20__score {
-        padding: 6px 10px;
-        font-size: 0.8rem;
+        display: inline-block;
+        padding: 6px 12px;
+        font-size: 0.9rem;
     }
 
-    .top20__title {
-        font-size: 1.8rem;
+    .top20__avatar {
+        display: none;
+    }
+
+    /* ----- PODIUM RESPONSIVE ----- */
+    .podium {
+        align-items: center;
+        margin-bottom: 40px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .podium__item--first {
+        order: -1;
+    }
+
+    .podium__item {
+        width: 100%;
+        max-width: 320px;
+        flex-direction: row;
+        align-items: center;
+        background: white;
+        padding: 10px 15px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        border: 1px solid #E0E0E0;
+    }
+
+    .podium__stand,
+    .podium__title,
+    .podium__school {
+        display: none;
+    }
+
+    .podium__avatar {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        margin-bottom: 0;
+        margin-right: 15px;
+        border-width: 2px;
+    }
+
+    .podium__item--first .podium__avatar {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+
+    .podium__item--first .podium__avatar::before {
+        font-size: 1.5rem;
+        top: -20px;
+    }
+
+    .podium__name {
+        font-size: 1rem;
+        margin-bottom: 2px;
+        margin-right: auto;
+    }
+
+    .podium__score {
+        margin-bottom: 0;
+        font-size: 0.85rem;
+        padding: 4px 10px;
     }
 }
+
 
 /* ===== TOP 20 TOGGLE BUTTON ===== */
 .top20__toggle {
@@ -1907,9 +2046,10 @@ body {
 }
 
 /* Responsive for Prizes */
+/* Responsive for Prizes */
 @media (max-width: 768px) {
     .prizes {
-        padding: 60px 15px;
+        padding: 40px 15px;
     }
 
     .prizes__title {
@@ -1918,28 +2058,39 @@ body {
 
     .prizes__table-section,
     .prizes__rewards-section {
-        padding: 20px 15px;
+        padding: 15px;
     }
 
     .prizes__th,
     .prizes__td {
-        padding: 12px 8px;
+        padding: 10px 5px;
         font-size: 0.8rem;
     }
 
-    .prizes__count {
-        width: 36px;
-        height: 36px;
-        font-size: 1rem;
+    .prizes__th--label {
+        padding-left: 10px;
+        min-width: 100px;
     }
 
+    .prizes__td--label {
+        padding-left: 10px;
+    }
+
+    .prizes__count {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+    }
+
+    /* Stack cards better on mobile */
     .prizes__cards {
-        gap: 20px;
+        gap: 15px;
     }
 
     .prizes__card {
-        width: 160px;
-        padding: 20px;
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
     }
 
     .prizes__card-mascot img {
@@ -1952,6 +2103,21 @@ body {
 
     .prizes__decoration {
         display: none;
+    }
+
+    /* Mascots resize */
+    .prizes__mascots {
+        gap: 15px;
+        align-items: flex-end;
+    }
+
+    .prizes__mascot-img {
+        width: 60px !important;
+    }
+
+    .prizes__mascot-label {
+        font-size: 0.75rem;
+        padding: 4px 10px;
     }
 }
 
