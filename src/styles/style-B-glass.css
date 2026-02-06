@@ -1152,3 +1152,302 @@ body {
         gap: 10px;
     }
 }
+
+/* ===== TOP 20 LEADERBOARD TABLE ===== */
+.top20 {
+    padding: 80px 20px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+}
+
+.top20__container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.top20__header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.top20__title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 15px;
+    color: var(--gold-glow);
+    text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+}
+
+.top20__subtitle {
+    font-size: 1.1rem;
+    opacity: 0.8;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.top20__table-wrapper {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    overflow: hidden;
+    box-shadow: 0 20px 60px var(--glass-shadow);
+}
+
+.top20__table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.top20__th {
+    background: linear-gradient(135deg, rgba(139, 0, 0, 0.8), rgba(196, 30, 58, 0.6));
+    color: var(--gold-glow);
+    font-weight: 700;
+    padding: 18px 15px;
+    text-align: left;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid var(--gold-glow);
+}
+
+.top20__th--rank {
+    width: 100px;
+    text-align: center;
+}
+
+.top20__th--name {
+    min-width: 200px;
+}
+
+.top20__th--grade {
+    width: 120px;
+    text-align: center;
+}
+
+.top20__th--school {
+    min-width: 220px;
+}
+
+.top20__th--score {
+    width: 130px;
+    text-align: center;
+}
+
+.top20__row {
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.top20__row:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.01);
+}
+
+.top20__row--gold {
+    background: linear-gradient(90deg, rgba(255, 215, 0, 0.25) 0%, rgba(255, 215, 0, 0.1) 50%, transparent 100%);
+}
+
+.top20__row--gold:hover {
+    background: linear-gradient(90deg, rgba(255, 215, 0, 0.35) 0%, rgba(255, 215, 0, 0.2) 50%, transparent 100%);
+}
+
+.top20__row--silver {
+    background: linear-gradient(90deg, rgba(192, 192, 192, 0.2) 0%, rgba(192, 192, 192, 0.08) 50%, transparent 100%);
+}
+
+.top20__row--silver:hover {
+    background: linear-gradient(90deg, rgba(192, 192, 192, 0.3) 0%, rgba(192, 192, 192, 0.15) 50%, transparent 100%);
+}
+
+.top20__row--bronze {
+    background: linear-gradient(90deg, rgba(205, 127, 50, 0.2) 0%, rgba(205, 127, 50, 0.08) 50%, transparent 100%);
+}
+
+.top20__row--bronze:hover {
+    background: linear-gradient(90deg, rgba(205, 127, 50, 0.3) 0%, rgba(205, 127, 50, 0.15) 50%, transparent 100%);
+}
+
+.top20__row--top10 {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.top20__td {
+    padding: 15px;
+    font-size: 0.95rem;
+    vertical-align: middle;
+}
+
+.top20__td--rank {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.top20__rank-number {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--gold-glow);
+    min-width: 30px;
+}
+
+.top20__medal {
+    font-size: 1.3rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+.top20__td--name {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.top20__avatar {
+    font-size: 1.8rem;
+    width: 40px;
+    height: 40px;
+    background: var(--glass-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--glass-border);
+}
+
+.top20__row--gold .top20__avatar {
+    border-color: var(--gold-glow);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+.top20__row--silver .top20__avatar {
+    border-color: #C0C0C0;
+    box-shadow: 0 0 15px rgba(192, 192, 192, 0.4);
+}
+
+.top20__row--bronze .top20__avatar {
+    border-color: #CD7F32;
+    box-shadow: 0 0 15px rgba(205, 127, 50, 0.4);
+}
+
+.top20__student-name {
+    font-weight: 600;
+    color: white;
+}
+
+.top20__row--gold .top20__student-name {
+    color: var(--gold-glow);
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    font-size: 1.05rem;
+}
+
+.top20__td--grade {
+    text-align: center;
+}
+
+.top20__grade-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    background: linear-gradient(135deg, rgba(255, 77, 109, 0.3), rgba(255, 140, 0, 0.2));
+    border: 1px solid rgba(255, 77, 109, 0.4);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--cream);
+}
+
+.top20__td--school {
+    opacity: 0.9;
+    font-size: 0.9rem;
+}
+
+.top20__td--score {
+    text-align: center;
+}
+
+.top20__score {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 140, 0, 0.1));
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 700;
+    color: var(--gold-glow);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.top20__row--gold .top20__score {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.3), rgba(255, 140, 0, 0.2));
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+.top20__footer {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.top20__note {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    font-style: italic;
+}
+
+/* Responsive for Top 20 */
+@media (max-width: 900px) {
+    .top20__th,
+    .top20__td {
+        padding: 12px 10px;
+        font-size: 0.85rem;
+    }
+
+    .top20__th--school,
+    .top20__td--school {
+        display: none;
+    }
+
+    .top20__avatar {
+        width: 35px;
+        height: 35px;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .top20 {
+        padding: 60px 15px;
+    }
+
+    .top20__th--grade,
+    .top20__td--grade {
+        display: none;
+    }
+
+    .top20__th,
+    .top20__td {
+        padding: 10px 8px;
+        font-size: 0.8rem;
+    }
+
+    .top20__rank-number {
+        font-size: 0.95rem;
+    }
+
+    .top20__medal {
+        font-size: 1rem;
+    }
+
+    .top20__student-name {
+        font-size: 0.9rem;
+    }
+
+    .top20__score {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+}

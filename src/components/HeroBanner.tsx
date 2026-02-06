@@ -6,11 +6,11 @@ const HeroBanner: React.FC = () => {
             <div className="hero__content">
                 <div className="hero__text">
                     <h1 className="hero__title">
-                        <span className="hero__title-line1">Trạng Nguyên</span>
-                        <span className="hero__title-line2">Clevai</span>
+                        <span className="hero__title-line1">Ngựa Vàng</span>
+                        <span className="hero__title-line2">Tranh Tài Tri Thức</span>
                     </h1>
                     <p className="hero__subtitle">
-                        🎊 Chinh phục tri thức - Giành ngôi Trạng Nguyên! 🎊
+                        Chinh phục tri thức - Giành ngôi Quán quân!
                     </p>
                     <p className="hero__description">
                         Tham gia cuộc thi online lớn nhất mùa Tết Ất Tỵ 2025.
@@ -18,7 +18,7 @@ const HeroBanner: React.FC = () => {
                     </p>
                     <div className="hero__buttons">
                         <a href="#play" className="hero__btn hero__btn--primary">
-                            🚀 Bắt đầu ngay
+                            VÀO THI
                         </a>
                         <a href="#leaderboard" className="hero__btn hero__btn--secondary">
                             🏆 Xem bảng xếp hạng
@@ -32,7 +32,7 @@ const HeroBanner: React.FC = () => {
                         <span className="hero__mascot-emoji">🧒</span>
                         <div className="hero__mascot-badge">
                             <span>👑</span>
-                            <span>Trạng Nguyên</span>
+                            <span>Ngựa Vàng</span>
                         </div>
                     </div>
 

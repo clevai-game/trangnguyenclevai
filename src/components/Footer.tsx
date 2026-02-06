@@ -10,10 +10,10 @@ const Footer: React.FC = () => {
                     <div className="footer__brand">
                         <div className="footer__logo">
                             <span>🏮</span>
-                            <span>Trạng Nguyên Clevai</span>
+                            <span>Ngựa Vàng</span>
                         </div>
                         <p className="footer__tagline">
-                            Chinh phục tri thức - Giành ngôi Trạng Nguyên!
+                            Chinh phục tri thức - Giành ngôi Quán quân!
                         </p>
                         <div className="footer__social">
                             <a href="#" className="footer__social-link" aria-label="Facebook">📘</a>

@@ -8,8 +8,7 @@ const Navbar: React.FC = () => {
             <div className="navbar__container">
                 {/* Logo */}
                 <div className="navbar__logo">
-                    <span className="navbar__logo-icon">🏮</span>
-                    <span className="navbar__logo-text">Trạng Nguyên Clevai</span>
+                    <img src="/assets/Logoclevai.png" alt="Clevai" className="navbar__logo-img" />
                 </div>
 
                 {/* Desktop Menu */}

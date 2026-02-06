@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import HeroBanner from './components/HeroBanner';
 import Statistics from './components/Statistics';
 import Leaderboard from './components/Leaderboard';
+import LeaderboardTop20 from './components/LeaderboardTop20';
 import Features from './components/Features';
 import News from './components/News';
 import Footer from './components/Footer';
@@ -23,6 +24,7 @@ const App: React.FC = () => {
                 <HeroBanner />
                 <Statistics />
                 <Leaderboard />
+                <LeaderboardTop20 />
                 <Features />
                 <News />
             </main>
@@ -34,3 +36,4 @@ const App: React.FC = () => {
 };
 
 export default App;
+
