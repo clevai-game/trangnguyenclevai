@@ -2,6 +2,7 @@ import React from 'react';
 import './styles/style-E-original.css';
 import Navbar from './components/Navbar';
 import HeroBanner from './components/HeroBanner';
+import Statistics from './components/Statistics';
 import ContestRules from './components/ContestRules';
 import Leaderboard from './components/Leaderboard';
 import LeaderboardTop20 from './components/LeaderboardTop20';
@@ -18,6 +19,7 @@ const AppOriginal: React.FC = () => {
             <Navbar />
             <main>
                 <HeroBanner />
+                <Statistics />
                 <ContestRules />
                 <Leaderboard />
                 <LeaderboardTop20 />

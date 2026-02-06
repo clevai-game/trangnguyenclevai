@@ -455,32 +455,62 @@ body {
 
 .statistics__item {
     text-align: center;
-    background: var(--tn-blue-light);
+    background: linear-gradient(135deg, var(--tn-red) 0%, #B71C1C 100%);
+    /* Red Theme */
     padding: 30px 20px;
     border-radius: var(--radius-card);
     transition: transform 0.2s;
+    border: 2px solid #FFD54F;
+    /* Gold Accent Border */
 }
 
 .statistics__item:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(211, 47, 47, 0.4);
 }
 
 .statistics__icon {
     font-size: 3rem;
     margin-bottom: 15px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .statistics__value {
     font-family: var(--font-heading);
     font-size: 2.5rem;
-    color: var(--tn-text-main);
+    color: #FFFFFF;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
 }
 
 .statistics__label {
     font-weight: 700;
-    color: var(--tn-text-gray);
+    color: #FFECB3;
+    /* Light Gold text */
     margin-top: 5px;
 }
+
+@media (max-width: 900px) {
+    .statistics {
+        padding: 40px 20px;
+    }
+
+    .statistics__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .statistics__value {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .statistics__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
 
 /* ===== CONTEST RULES (Thể lệ cuộc thi) ===== */
 .contest-rules {
